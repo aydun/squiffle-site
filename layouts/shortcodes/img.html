@@ -1,0 +1,10 @@
+{{- /*
+  Small image floated beside the text.
+  Usage: {{< img src="/images/civi_logo.png" alt="CiviCRM logo" width="200" align="right" link="https://civicrm.org" >}}
+  align: "right" (default), "left" or "none"
+*/ -}}
+{{- $align := .Get "align" | default "right" -}}
+{{- $img := printf `<img src="%s" alt="%s"%s>` (.Get "src") (.Get "alt" | default "") (cond (ne (.Get "width") "") (printf ` width="%s"` (.Get "width")) "") -}}
+<span class="sq-img sq-img-{{ $align }}">
+  {{- with .Get "link" }}<a href="{{ . }}">{{ $img | safeHTML }}</a>{{ else }}{{ $img | safeHTML }}{{ end -}}
+</span>

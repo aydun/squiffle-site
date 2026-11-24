@@ -1,0 +1,52 @@
+/* Small additions to the Blowfish theme. You shouldn't need to edit this. */
+
+/* Images floated beside text (see layouts/shortcodes/img.html) */
+.sq-img img { margin: 0.25rem 0 1rem; max-width: 100%; height: auto; }
+.sq-img-right { float: right; margin-left: 1.5rem; }
+.sq-img-left { float: left; margin-right: 1.5rem; }
+.sq-img-none { display: block; }
+@media (max-width: 480px) {
+  .sq-img-right, .sq-img-left { float: none; display: block; margin: 0 0 1rem; }
+}
+.prose h2, .prose h3 { clear: both; }
+
+/* Homepage: keep long paragraphs left-aligned under the centred hero */
+section.landing-rise-4 { text-align: left !important; max-width: 64rem; }
+section.landing-rise-4 > h2 { text-align: center; margin-top: 3rem; }
+
+/* Logo size in the header */
+img.logo { max-width: 11rem !important; max-height: 4rem !important; }
+@media (max-width: 640px) { img.logo { max-width: 8rem !important; } }
+
+/* "Contact us" shown as a button in the top menu (desktop) */
+header a[href="/contact-us/"] > span.text-sm {
+  background: rgb(var(--color-primary-600));
+  color: #fff;
+  padding: 0.45rem 0.9rem;
+  border-radius: 0.6rem;
+}
+header a[href="/contact-us/"]:hover > span.text-sm { background: rgb(var(--color-primary-500)); }
+
+/* Contact line in the footer (layouts/partials/extend-footer.html) */
+.sq-footer { margin-top: 1rem; font-size: 0.875rem; }
+.sq-footer a { text-decoration: underline; text-underline-offset: 2px; }
+.sq-footer p { margin: 0.25rem 0; }
+
+/* "Page not found" links */
+.sq-404-links { list-style: none; padding: 0; }
+.sq-company { opacity: 0.8; font-size: 0.8rem; }
+
+/* CiviCRM badges (layouts/shortcodes/civibadges.html) */
+.sq-badges { float: right; display: flex; gap: 0.75rem; margin: 0.25rem 0 1rem 1.5rem; }
+.sq-badges img { margin: 0; width: 110px; height: auto; }
+@media (max-width: 480px) {
+  .sq-badges { float: none; margin: 0 0 1rem; }
+}
+
+/* Inner pages: same text width and size as the homepage */
+#single_header,
+.article-content { max-width: 64rem !important; margin-inline: auto; }
+.article-content { font-size: 1.125rem; line-height: 1.78; }
+.article-content > :first-child { margin-top: 0; }
+#main-content section.prose { max-width: none; }
+#main-content section.prose > div { max-width: none; width: 100%; }

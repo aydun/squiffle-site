@@ -1,0 +1,105 @@
+# Site settings for squiffle.uk
+# Build with:   hugo          (output goes to ./public)
+# Preview with: hugo server   (then open http://localhost:1313)
+
+baseURL = "https://www.squiffle.uk/"
+locale = "en-GB"
+title = "Squiffle Consulting"
+theme = "blowfish"
+enableRobotsTXT = true
+
+# Plain pages only - no blog, tags or RSS feeds.
+disableKinds = ["taxonomy", "term", "rss"]
+
+[outputs]
+  home = ["HTML"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+# ---------------------------------------------------------------------------
+# Menu across the top of every page. "weight" sets the order.
+# Entries with a "parent" appear in a drop-down under that item.
+# (The logo links to the home page, so there's no "Home" item.)
+# ---------------------------------------------------------------------------
+[menus]
+  [[menus.main]]
+    name = "CiviCRM"
+    pageRef = "civicrm"
+    weight = 20
+  [[menus.main]]
+    name = "What is CiviCRM?"
+    parent = "CiviCRM"
+    pageRef = "civicrm"
+    weight = 21
+  [[menus.main]]
+    name = "CiviCRM costs"
+    parent = "CiviCRM"
+    pageRef = "civicrm-costs"
+    weight = 22
+  [[menus.main]]
+    name = "Support & upgrades"
+    parent = "CiviCRM"
+    pageRef = "civicrm-support"
+    weight = 23
+  [[menus.main]]
+    name = "Case study – Step"
+    parent = "CiviCRM"
+    pageRef = "case-study-step"
+    weight = 24
+  [[menus.main]]
+    name = "Data sovereignty"
+    parent = "CiviCRM"
+    pageRef = "data-sovereignty"
+    weight = 25
+  [[menus.main]]
+    name = "Contact us"
+    pageRef = "contact-us"
+    weight = 60
+  [[menus.main]]
+    name = "About us"
+    pageRef = "about-us"
+    weight = 50
+
+# ---------------------------------------------------------------------------
+# Theme options (see https://blowfish.page/docs/configuration/)
+# ---------------------------------------------------------------------------
+[params]
+  description = "CiviCRM consultancy helping charities succeed."
+  copyright = "© { year } Squiffle Consulting Ltd"
+  logo = "images/squiffle-logo.png"
+  defaultSocialImage = "images/social-card.jpg"   # picture shown when a link is shared
+  disableTextInHeader = true
+
+  colorScheme = "ocean"
+  defaultAppearance = "light"
+  autoSwitchAppearance = false
+  enableSearch = false
+  showAppearanceSwitcher = false
+
+  [params.header]
+    layout = "fixed-fill-blur"
+
+  [params.footer]
+    showMenu = false
+    showCopyright = true
+    showThemeAttribution = false
+    showAppearanceSwitcher = false
+    showScrollToTop = true
+
+  [params.homepage]
+    layout = "landing"
+    homepageImage = "images/ripples.jpg"
+    showRecent = false
+
+  # Plain pages: hide blog-style extras.
+  [params.article]
+    showDate = false
+    showReadingTime = false
+    showWordCount = false
+    showAuthor = false
+    showPagination = false
+    showHeadingAnchors = false
+    showBreadcrumbs = false
+    showTableOfContents = false
+    sharingLinks = false

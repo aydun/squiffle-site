@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <section class="prose dark:prose-invert mx-auto max-w-2xl py-16 text-center">
+    <h1>Sorry, we can't find that page</h1>
+    <p>It may have moved when we rebuilt the website. Try one of these instead:</p>
+    <ul class="sq-404-links">
+      <li><a href="{{ "/" | relURL }}">Home</a></li>
+      <li><a href="{{ "/civicrm/" | relURL }}">What is CiviCRM?</a></li>
+      <li><a href="{{ "/case-study-step/" | relURL }}">Case study: Step</a></li>
+      <li><a href="{{ "/about-us/" | relURL }}">About us</a></li>
+      <li><a href="{{ "/contact-us/" | relURL }}">Contact us</a></li>
+    </ul>
+  </section>
+{{ end }}
