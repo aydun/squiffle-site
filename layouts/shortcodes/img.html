@@ -4,7 +4,7 @@
   align: "right" (default), "left" or "none"
 */ -}}
 {{- $align := .Get "align" | default "right" -}}
-{{- $img := printf `<img src="%s" alt="%s"%s>` (.Get "src") (.Get "alt" | default "") (cond (ne (.Get "width") "") (printf ` width="%s"` (.Get "width")) "") -}}
+{{- $img := printf `<img src="%s" alt="%s"%s>` (strings.TrimPrefix "/" (.Get "src") | relURL) (.Get "alt" | default "") (cond (ne (.Get "width") "") (printf ` width="%s"` (.Get "width")) "") -}}
 <span class="sq-img sq-img-{{ $align }}">
   {{- with .Get "link" }}<a href="{{ . }}">{{ $img | safeHTML }}</a>{{ else }}{{ $img | safeHTML }}{{ end -}}
 </span>
