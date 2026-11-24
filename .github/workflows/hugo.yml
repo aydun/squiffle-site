@@ -32,10 +32,10 @@ jobs:
         with:
           submodules: recursive
       - name: Setup Pages
-        id: pages
         uses: actions/configure-pages@v6
+      # The site address (https://www.squiffle.uk/) comes from baseURL in hugo.toml.
       - name: Build
-        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        run: hugo --gc --minify
       - name: Upload
         uses: actions/upload-pages-artifact@v5
         with:
