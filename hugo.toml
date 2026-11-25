@@ -103,3 +103,25 @@ disableKinds = ["taxonomy", "term", "rss"]
     showBreadcrumbs = false
     showTableOfContents = false
     sharingLinks = false
+
+# ---------------------------------------------------------------------------
+# Skip Claude Code's private .claude folders (unreadable to other users,
+# which makes "hugo server" fail). Each mount repeats Hugo's default.
+# ---------------------------------------------------------------------------
+[module]
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+    files = ["! .claude", "! **/.claude", "! .claude/**", "! **/.claude/**"]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+    files = ["! .claude", "! **/.claude", "! .claude/**", "! **/.claude/**"]
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+    files = ["! .claude", "! **/.claude", "! .claude/**", "! **/.claude/**"]
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+    files = ["! .claude", "! **/.claude", "! .claude/**", "! **/.claude/**"]
